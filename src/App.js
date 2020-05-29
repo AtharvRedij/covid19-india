@@ -6,6 +6,7 @@ class App extends Component {
   state = {
     statesData: null,
     districtsData: null,
+    activeState: "TT",
   };
 
   fetchStateDetails = () => {
@@ -43,8 +44,12 @@ class App extends Component {
     this.fetchDistrictDetails();
   }
 
+  handleStateClick = (statecode) => {
+    this.setState({ activeState: statecode });
+  };
+
   render() {
-    const { statesData } = this.state;
+    const { statesData, activeState } = this.state;
 
     if (statesData === null) return null;
 
@@ -54,10 +59,13 @@ class App extends Component {
           <StatePreview
             key={state.statecode}
             stateName={state.state}
-            active={state.active}
-            confirmed={state.confirmed}
-            recovered={state.recovered}
-            deaths={state.deaths}
+            stateCode={state.statecode}
+            activeCases={state.active}
+            confirmedCases={state.confirmed}
+            recoveredCases={state.recovered}
+            deathsCases={state.deaths}
+            active={activeState === state.statecode}
+            onStateClick={this.handleStateClick}
           />
         ))}
       </div>
