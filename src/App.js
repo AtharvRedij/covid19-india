@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import StateInfo from "./components/StateInfo";
 import "./App.css";
-import StatePreview from "./components/StatePreview";
 
 class App extends Component {
   state = {
@@ -56,7 +56,7 @@ class App extends Component {
     return (
       <div className="container">
         {statesData.map((state) => (
-          <StatePreview
+          <StateInfo
             key={state.statecode}
             stateName={state.state}
             stateCode={state.statecode}
