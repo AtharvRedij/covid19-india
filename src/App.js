@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import StatePreview from "./components/StatePreview";
 
 class App extends Component {
   state = {
@@ -43,8 +44,24 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
-    return <h1>This is the homepage</h1>;
+    const { statesData } = this.state;
+
+    if (statesData === null) return null;
+
+    return (
+      <div className="container">
+        {statesData.map((state) => (
+          <StatePreview
+            key={state.statecode}
+            stateName={state.state}
+            active={state.active}
+            confirmed={state.confirmed}
+            recovered={state.recovered}
+            deaths={state.deaths}
+          />
+        ))}
+      </div>
+    );
   }
 }
 

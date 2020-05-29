@@ -1,0 +1,43 @@
+.state-preview-container {
+  margin: 1.5em;
+  padding: 1em;
+  border: 1px solid;
+  min-width: 22em;
+  max-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.state-preview-state-name {
+  font-weight: 600;
+  margin-bottom: 0.8em;
+}
+
+.state-preview-info {
+  display: flex;
+}
+
+.state-preview-confirmed-cases {
+  color: #ff073a;
+}
+
+.state-preview-active-cases {
+  color: #007bff;
+}
+
+.state-preview-recovered-cases {
+  color: #28a745;
+}
+
+.state-preview-deaths-cases {
+  color: #6c757d;
+}
+
+.state-preview-confirmed-cases,
+.state-preview-active-cases,
+.state-preview-recovered-cases,
+.state-preview-deaths-cases {
+  margin-right: 1em;
+  text-align: center;
+}
