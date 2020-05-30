@@ -2,3 +2,8 @@
   border: 2px solid gray;
   width: inherit;
 }
+
+.state-info-container img {
+  width: 350px;
+  height: 400px;
+}

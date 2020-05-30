@@ -19,16 +19,16 @@ const StatePreview = ({
       <div className="state-preview-state-name">{stateName}</div>
       <div className="state-preview-info">
         <div className="state-preview-confirmed-cases">
-          Confirmed <br /> {confirmedCases}
+          Confirmed <br /> <br /> {confirmedCases}
         </div>
         <div className="state-preview-active-cases">
-          Active <br /> {activeCases}
+          Active <br /> <br /> {activeCases}
         </div>
         <div className="state-preview-recovered-cases">
-          Recovered <br /> {recoveredCases}
+          Recovered <br /> <br /> {recoveredCases}
         </div>
         <div className="state-preview-deaths-cases">
-          Deaths <br /> {deathsCases}
+          Deaths <br /> <br /> {deathsCases}
         </div>
       </div>
     </div>
