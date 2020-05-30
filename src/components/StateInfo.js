@@ -1,8 +1,8 @@
 import React from "react";
 import StatePreview from "./StatePreview";
-import "./StateInfo.css";
-import { get_url } from "./../DATA";
 import DistrictsTable from "./DistrictsTable";
+import { getStateImageUrl } from "../API";
+import "./StateInfo.css";
 
 const StateInfo = (props) => {
   if (props.districtsInfo === null || !props.active) {
@@ -13,7 +13,7 @@ const StateInfo = (props) => {
         <StatePreview {...props} />
         <div className="state-information">
           <DistrictsTable districts={props.districtsInfo} />
-          <img src={get_url(props.stateCode)} alt={props.stateName} />
+          <img src={getStateImageUrl(props.stateCode)} alt={props.stateName} />
         </div>
       </div>
     );

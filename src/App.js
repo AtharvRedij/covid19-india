@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import StateInfo from "./components/StateInfo";
+import { fetchStateDetails, fetchDistrictDetails } from "./API";
 import "./App.css";
 
 class App extends Component {
@@ -9,39 +10,14 @@ class App extends Component {
     activeState: "TT",
   };
 
-  fetchStateDetails = () => {
-    const url = "https://api.covid19india.org/data.json";
+  async componentDidMount() {
+    const statesData = await fetchStateDetails();
+    const districtsData = await fetchDistrictDetails();
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((out) => {
-        this.setState({
-          statesData: out.statewise,
-        });
-      })
-      .catch((err) => {
-        throw err;
-      });
-  };
-
-  fetchDistrictDetails = () => {
-    const url = "https://api.covid19india.org/state_district_wise.json";
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((out) => {
-        this.setState({
-          districtsData: out,
-        });
-      })
-      .catch((err) => {
-        throw err;
-      });
-  };
-
-  componentDidMount() {
-    this.fetchStateDetails();
-    this.fetchDistrictDetails();
+    this.setState({
+      statesData,
+      districtsData,
+    });
   }
 
   handleStateClick = (statecode) => {
@@ -51,7 +27,7 @@ class App extends Component {
   render() {
     const { statesData, districtsData, activeState } = this.state;
 
-    if (statesData === null || districtsData === null) return null;
+    if (!(statesData || districtsData)) return <h1>Loading...</h1>;
 
     return (
       <div className="app-container">

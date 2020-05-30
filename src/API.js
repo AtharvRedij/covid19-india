@@ -40,4 +40,20 @@ const STATE_IMAGES = {
   LD: "https://upload.wikimedia.org/wikipedia/commons/1/1b/IN-LD.svg",
 };
 
-export const get_url = (state_code) => STATE_IMAGES[state_code];
+export const getStateImageUrl = (state_code) => STATE_IMAGES[state_code];
+
+export const fetchStateDetails = async () => {
+  const url = "https://api.covid19india.org/data.json";
+
+  let response = await fetch(url);
+  let data = await response.json();
+  return data.statewise;
+};
+
+export const fetchDistrictDetails = async () => {
+  const url = "https://api.covid19india.org/state_district_wise.json";
+
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+};
