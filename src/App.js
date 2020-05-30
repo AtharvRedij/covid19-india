@@ -49,9 +49,9 @@ class App extends Component {
   };
 
   render() {
-    const { statesData, activeState } = this.state;
+    const { statesData, districtsData, activeState } = this.state;
 
-    if (statesData === null) return null;
+    if (statesData === null || districtsData === null) return null;
 
     return (
       <div className="app-container">
@@ -64,6 +64,11 @@ class App extends Component {
             confirmedCases={state.confirmed}
             recoveredCases={state.recovered}
             deathsCases={state.deaths}
+            districtsInfo={
+              state.state === "Total" || state.state === "State Unassigned"
+                ? null
+                : districtsData[state.state].districtData
+            }
             active={activeState === state.statecode}
             onStateClick={this.handleStateClick}
           />

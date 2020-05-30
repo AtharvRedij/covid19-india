@@ -1,9 +1,20 @@
 .state-info-container {
-  border: 2px solid gray;
+  border: 1px solid gray;
   width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5em;
+  border-radius: 1em;
+}
+
+.state-information {
+  display: flex;
+  justify-content: space-evenly;
+  width: -webkit-fill-available;
 }
 
 .state-info-container img {
-  width: 350px;
-  height: 400px;
+  width: 400px;
+  height: 450px;
 }
