@@ -13,9 +13,7 @@ const StatePreview = ({
 }) => {
   return (
     <div
-      className={`state-preview-container ${
-        active ? "active-state-preview" : ""
-      }`}
+      className="state-preview-container"
       onClick={() => onStateClick(stateCode)}
     >
       <div className="state-preview-state-name">{stateName}</div>

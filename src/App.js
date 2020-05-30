@@ -54,7 +54,7 @@ class App extends Component {
     if (statesData === null) return null;
 
     return (
-      <div className="container">
+      <div className="app-container">
         {statesData.map((state) => (
           <StateInfo
             key={state.statecode}
